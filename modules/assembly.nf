@@ -64,7 +64,7 @@ process assemble_shovill {
 
     output:
         tuple val(sample), path("${method}/${sample}/contigs.fa"),  emit: contigs
-        tuple val(sample), path("${method}/${sample}/spades.gfa"), emit: graph
+        tuple val(sample), path("${method}/${sample}/assembly_graph_with_scaffolds.gfa"), emit: graph
 
     script:
         """
@@ -82,7 +82,7 @@ process assemble_shovill {
         """
             mkdir -p ${method}/${sample}
             touch ${method}/${sample}/contigs.fa
-            touch ${method}/${sample}/spades.gfa
+            touch ${method}/${sample}/assembly_graph_with_scaffolds.gfa
         """
 }
 
@@ -113,7 +113,7 @@ process assemble_spades_meta {
     output:
         tuple val(sample), path("${method}/${sample}/contigs.fasta"), emit: contigs
         tuple val(sample), path("${method}/${sample}/scaffolds.fasta"), emit: scaffolds //SRR5330172.contigs.gfa
-        tuple val(sample), path("${method}/${sample}/contigs.gfa"), emit: graph
+        tuple val(sample), path("${method}/${sample}/assembly_graph_with_scaffolds.gfa"), emit: graph
 
     script:
         """
@@ -129,7 +129,7 @@ process assemble_spades_meta {
     stub:
         """
             mkdir -p ${method}/${sample}
-            touch ${method}/${sample}/contigs.fasta ${method}/${sample}/scaffolds.fasta ${method}/${sample}/contigs.gfa
+            touch ${method}/${sample}/contigs.fasta ${method}/${sample}/scaffolds.fasta ${method}/${sample}/assembly_graph_with_scaffolds.gfa
         """
 }
 

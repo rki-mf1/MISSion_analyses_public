@@ -4,6 +4,8 @@ Nextflow workflows for paired-end short-read sequencing analysis in the [MISSion
 
 > **Project status:** This is a project-specific **Nextflow DSL2** repository, **not an nf-core release or an nf-core-validated pipeline**. This README uses the familiar nf-core sections (Introduction, Pipeline summary, Usage, Pipeline output, Credits/Support, Citations) but documents the *actual* parameter names, source code, and publication rules.
 
+This pipeline was used to run the analyses in "Metagenomic profiling of antimicrobial resistance, mobile genetic elements, and virulence-associated genes across diverse environmental reservoirs in an informal settlement of Nairobi, Kenya" Kebenei C *et al*.
+
 ## Introduction
 
 The repository contains two independent entry points:
@@ -47,6 +49,7 @@ The repository contains two independent entry points:
 
 - A **Linux/Unix** environment with **Nextflow DSL2**, a compatible Java runtime, and common command-line tools (`bash`, `awk`, `cut`, `sed`, `gzip`, etc.). 
 - **Conda** or **Mamba** to create the environments defined under [`envs/`](envs/), using `-profile mission_conda` or `-profile mission_mamba`. 
+- **Nextflow** to run the pipeline. Please make sure to run Nextflow versions smaller or equal to 25.10., because new language featrues are not implemented in the pipeline yet.
 - Access to the tool-specific reference/data assets: Kraken2 and Bracken databases for taxon filtering, installed ABRicate databases, and any optional MetaPhlAn database.
 - Adequate CPU, memory and disk space. Source requests include **750 GB RAM** for some Kraken2/Bracken jobs, **500 GB** for metaSPAdes, **150 GB** for MetaPhlAn, **250 GB** for BWA indexing in `read_filter.nf`, and **60 CPUs** for joint FreeBayes. These values are configurations, **not measured minimum requirements**.
 - Shared visibility of input, reference, database, work and output paths on cluster worker nodes.
