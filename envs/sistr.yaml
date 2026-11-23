@@ -1,0 +1,6 @@
+name: sistr
+channels:
+ - conda-forge
+ - bioconda
+dependencies:
+ - sistr_cmd

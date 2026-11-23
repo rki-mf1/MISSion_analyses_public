@@ -1,0 +1,8 @@
+name: shovill
+channels:
+ - conda-forge
+ - bioconda
+dependencies:
+ - shovill
+ - spades >=3.14,<4
+# - spades>=4.0.0
